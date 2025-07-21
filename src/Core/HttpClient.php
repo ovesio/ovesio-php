@@ -25,17 +25,17 @@ class HttpClient
         $this->baseUrl = rtrim($baseUrl, '/') . '/';
     }
 
-    public function get(string $endpoint): array
+    public function get(string $endpoint): object
     {
         return $this->request('GET', $endpoint);
     }
 
-    public function post(string $endpoint, array $payload): array
+    public function post(string $endpoint, array $payload): object
     {
         return $this->request('POST', $endpoint, $payload);
     }
 
-    private function request(string $method, string $endpoint, array $payload = []): array
+    private function request(string $method, string $endpoint, array $payload = []): object
     {
         $url = $this->baseUrl . ltrim($endpoint, '/');
         $ch = curl_init();
@@ -65,7 +65,7 @@ class HttpClient
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        $json = json_decode($response, true);
+        $json = json_decode($response);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new Exception('Invalid JSON response from Ovesio API');

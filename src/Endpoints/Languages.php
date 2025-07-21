@@ -21,7 +21,7 @@ class Languages
         $this->http = $http;
     }
 
-    public function list(): array
+    public function list(): object
     {
         return $this->http->get('languages');
     }

@@ -75,7 +75,7 @@ class Translate
         return $this;
     }
 
-    public function request(): array
+    public function request(): object
     {
         if (!isset($this->payload['from'])) {
             $this->payload['from'] = 'AUTO';
@@ -88,7 +88,7 @@ class Translate
         return $this->http->post('translate/request', $this->payload);
     }
 
-    public function status(int $id): array
+    public function status(int $id): object
     {
         if (empty($id)) {
             throw new \InvalidArgumentException('Invalid request ID');
