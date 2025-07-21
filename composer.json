@@ -1,0 +1,22 @@
+{
+    "name": "ovesio/ovesio-php",
+    "description": "PHP client library for Ovesio.com API",
+    "version": "1.0.0",
+    "type": "library",
+    "require": {
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ovesio\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AWeb Design SRL",
+            "homepage": "https://ovesio.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
