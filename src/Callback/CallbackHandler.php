@@ -17,7 +17,7 @@ class CallbackHandler
      *
      * @return array|null Returns the payload array if valid, null otherwise
      */
-    public function handle(): ?array
+    public function handle(): ?object
     {
         $input = file_get_contents('php://input');
 
@@ -25,9 +25,9 @@ class CallbackHandler
             return null;
         }
 
-        $data = json_decode($input, true);
+        $data = json_decode($input);
 
-        if (json_last_error() !== JSON_ERROR_NONE || !is_array($data)) {
+        if (json_last_error() !== JSON_ERROR_NONE || !is_object($data)) {
             return null;
         }
 
