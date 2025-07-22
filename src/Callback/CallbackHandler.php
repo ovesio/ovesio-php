@@ -15,7 +15,7 @@ class CallbackHandler
     /**
      * Parse and validate callback payload from Ovesio
      *
-     * @return array|null Returns the payload array if valid, null otherwise
+     * @return object|null Returns the payload object if valid, null otherwise
      */
     public function handle(): ?object
     {
