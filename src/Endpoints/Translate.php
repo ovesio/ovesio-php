@@ -84,7 +84,7 @@ class Translate
     {
         if(isset($this->payload['data'])) {
             foreach($this->payload['data'] as $key => $entry) {
-                $this->payload['data'][$key] = array_filter($entry['content'], function($item) {
+                $this->payload['data'][$key]['content'] = array_filter($entry['content'], function($item) {
                     return !empty($item['value']);
                 });
             }
