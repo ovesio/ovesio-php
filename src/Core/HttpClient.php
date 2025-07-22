@@ -71,7 +71,7 @@ class HttpClient
             throw new Exception('Invalid JSON response from Ovesio API');
         }
 
-        if ($httpCode >= 400) {
+        if ($httpCode != 200 && $httpCode <> 400) {
             throw new Exception('API Error: HTTP ' . $httpCode . ' — ' . json_encode($json));
         }
 

@@ -19,13 +19,18 @@ try {
     $response = $client->translate()
         ->from('en')
         ->to(['fr', 'de'])
-        ->workflow(1)
-        ->callbackUrl('https://example.com/callback')
+        ->workflow(1) //Optional
         ->data([
-            'key' => 'name',
-            'value' => 'Test product',
-            'context' => 'Electronics'
-        ], 'prod-001')
+            [
+                'key' => 'title',
+                'value' => 'Awesome Product',
+                'context' => 'E-commerce / Electronics'
+            ],
+            [
+                'key' => 'desc',
+                'value' => 'High quality, affordable, modern.'
+            ]
+        ], 'ref-123')
         ->request();
 
     print_r($response);

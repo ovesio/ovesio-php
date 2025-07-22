@@ -66,7 +66,7 @@ class Translate
 
     public function data(array $content, string $ref = null)
     {
-        $entry = ['content' => [$content]];
+        $entry = ['content' => $content];
         if ($ref) {
             $entry['ref'] = $ref;
         }
