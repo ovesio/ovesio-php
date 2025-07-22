@@ -19,7 +19,7 @@ try {
     $response = $client->translate()
         ->from('en')
         ->to(['fr', 'de'])
-        ->workflow(1) //Optional
+        ->workflow(1) // optional
         ->data([
             [
                 'key' => 'title',
@@ -31,6 +31,7 @@ try {
                 'value' => 'High quality, affordable, modern.'
             ]
         ], 'ref-123')
+        ->filterByValue() // optional: remove empty values
         ->request();
 
     print_r($response);

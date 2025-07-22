@@ -62,9 +62,10 @@ $response = $client->translate()
         ],
         [
             'key' => 'desc',
-            'value' => 'High quality, affordable, modern.'
+            'value' => '' // this will be filtered out if filterByValue() is called
         ]
     ], 'ref-123')
+    ->filterByValue() // optional: remove empty values
     ->request();
 
 print_r($response);
@@ -94,10 +95,11 @@ $client->translate()
         ],
         [
             'key' => 'description',
-            'value' => 'Stylish and ergonomic.',
+            'value' => '',
             'context' => 'Product Description'
         ]
     ], 'product-102')
+    ->filterByValue() // optional
     ->request();
 ```
 

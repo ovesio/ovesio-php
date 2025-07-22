@@ -75,6 +75,24 @@ class Translate
         return $this;
     }
 
+    /**
+     * Filter content by value
+     *
+     * @return $this
+     */
+    public function filterByValue()
+    {
+        if(isset($this->payload['data'])) {
+            foreach($this->payload['data'] as $key => $entry) {
+                $this->payload['data'][$key] = array_filter($entry['content'], function($item) {
+                    return !empty($item['value']);
+                });
+            }
+        }
+
+        return $this;
+    }
+
     public function request(): object
     {
         if (!isset($this->payload['from'])) {
