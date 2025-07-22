@@ -51,7 +51,7 @@ class GenerateSeo
         return $this;
     }
 
-    public function request(): array
+    public function request(): object
     {
         if (!isset($this->payload['data'])) {
             throw new \Exception('Missing data() for generate-seo request');
@@ -60,7 +60,7 @@ class GenerateSeo
         return $this->http->post('ai/generate-seo', $this->payload);
     }
 
-    public function status(int $id): array
+    public function status(int $id): object
     {
         if (empty($id)) {
             throw new \InvalidArgumentException('Invalid request ID');
