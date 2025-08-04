@@ -4,7 +4,7 @@
  *
  * Author: AWeb Design SRL
  * Website: https://ovesio.com
- * Version: 1.0.0
+ * Version: 1.1.3
  * Required PHP: >= 7.1
  */
 
@@ -21,6 +21,6 @@ if (!$data) {
 }
 
 // Process received data (save to database, log, queue etc.)
-file_put_contents(__DIR__ . '/log-callback.txt', date('c') . "\n" . json_encode($data, JSON_PRETTY_PRINT) . "\n\n", FILE_APPEND);
+//.........
 
 $callback->success();
